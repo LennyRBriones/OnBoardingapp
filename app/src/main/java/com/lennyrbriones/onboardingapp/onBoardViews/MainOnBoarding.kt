@@ -1,6 +1,7 @@
 package com.lennyrbriones.onboardingapp.onBoardViews
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -49,6 +50,7 @@ fun MainOnboarding() {
     OnBoardingPager(
         item = items, pagerState = pagerState, modifier = Modifier
             .fillMaxWidth()
+            .fillMaxHeight()
             .background(Color.White)
     )
 }
