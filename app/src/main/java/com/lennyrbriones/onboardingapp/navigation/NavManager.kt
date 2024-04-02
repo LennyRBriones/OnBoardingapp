@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.lennyrbriones.onboardingapp.dataStore.StoreBoarding
 import com.lennyrbriones.onboardingapp.onBoardViews.MainOnboarding
 import com.lennyrbriones.onboardingapp.views.HomeView
+import com.lennyrbriones.onboardingapp.views.SplashScreen
 
 @Composable
 
@@ -18,12 +19,15 @@ fun NavManager(){
     val store = dataStore.getBoarding.collectAsState(initial = false)
 
     val navController = rememberNavController()
-    NavHost(navController , startDestination = if(store.value) "Home" else "OnBoarding" ) {
+    NavHost(navController , startDestination = if(store.value) "Home" else "Splash" ) {
         composable("OnBoarding"){
             MainOnboarding(navController, dataStore)
         }
         composable("Home"){
             HomeView(navController)
+        }
+        composable("Splash"){
+            SplashScreen(navController, store.value)
         }
     }
 }
